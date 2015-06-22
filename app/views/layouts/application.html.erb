@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FashionCatalog</title>
+  <title>Fashion</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="layout">
 
+<h1>Catalogue</h1>
+<form action="/products/search" method="get">
+	<input type='text' name='q'>
+	<button type="submit">search</button>
+</form>
+<p>Sort by:</p>
+<%= link_to "normal", products_index_path %>	 
+<%= link_to "brand", products_brand_path %>	 
+<%= link_to "category", products_category_path %>	
+<%= yield %>
+</div>
 </body>
 </html>
